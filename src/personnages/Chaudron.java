@@ -21,7 +21,7 @@ public class Chaudron {
 		 quantitePotion=q;
 	}
 	
-	
+	//gyuyu
 	public void remplirChaudron(int quantite ,int forcePotion) {
 		quantitePotion=quantite;
 		this.forcePotion=forcePotion;
