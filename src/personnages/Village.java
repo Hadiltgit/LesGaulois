@@ -17,9 +17,12 @@ public class Village {
 	}
 	
 	
-	public Village(String nom ,int nbvillageois) {
+	
+	
+	public Village(String nom , int nbvillageois , Gauloi chef ) {
 		this.nom=nom;
 		this.nbvillageois=nbvillageois;
+		this.chef=chef;
 	}
 	
     	int nbr=0;
@@ -44,13 +47,15 @@ public class Village {
     	  Gauloi chef = new Gauloi("Abraracourcix",6);
     	  
         
-    	   Village village = new Village("Village des Irréductibles",30);
+    	   Village village = new Village("Village des Irraductibles",30 , chef);
     	   
     	   village.ajouterVillageois(chef);
+    	   chef.setVillage(village);
     	   
-    	   Gauloi Astérix = new Gauloi("Astérix",8);
+    	   Gauloi Astirix = new Gauloi("Astirix",8);
     	   
-    	   village.ajouterVillageois(Astérix);
+    	   village.ajouterVillageois(Astirix);
+    	   Astirix.setVillage(village);
     	   
     	   Gauloi gaulois = village.trouverVillageois(1);
     	   System.out.println(gaulois.getNom());
@@ -58,26 +63,25 @@ public class Village {
     	   System.out.println(gaulois);
     	   
     	   
-    	   System.out.println("Dans le village \" "+village.getNom()+"\" du chef "+village.trouverVillageois(0).getNom()+" vivent les légendaires gaulois :");
+    	   System.out.println("Dans le village \" "+village.getNom()+"\" du chef "+village.trouverVillageois(0).getNom()+" vivent les lagendaires gaulois :");
     	   gaulois = village.trouverVillageois(1);
     	   System.out.println("-"+gaulois.getNom());
     	   
     	   
-    	   Gauloi Obélix = new Gauloi("Obélix",25);
-    	   village.ajouterVillageois(Obélix);
+    	   Gauloi obelix = new Gauloi("Obelix",25);
+    	   obelix.setVillage(village);
+    	   village.ajouterVillageois(obelix);
     	   village.afficherVillage();
 
     	   
-    	   Gauloi DoublePolémix = new Gauloi("DoublePolémix",4);
+    	   Gauloi DoublePolemix = new Gauloi("DoublePolemix",4);
     	   
-    	   Astérix.sePresenter();
-    	   Obélix.sePresenter();
-    	   DoublePolémix.sePresenter();
+    	   Astirix.sePresenter();
+    	   obelix.sePresenter();
+    	   DoublePolemix.sePresenter();
+    	   chef.sePresenter();
     }
     
-    /*Dans le village "Village des Irréductibles" du chef Abraracourcix
-vivent les légendaires gaulois :
-- Astérix*/
    public void afficherVillage() {
     	
 	   for(int i=0 ; i<nbr ; i++) {
