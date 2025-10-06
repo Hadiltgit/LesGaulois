@@ -55,5 +55,24 @@ public class Gauloi {
 		effetPotion=forcePotion;
 	}
 		
+    /*public setVillage(Village village) {
+    	
+    }
+    */
+	Village village;
 
+    public void sePresenter(){
+ 
+    	    if(this == village.getChef() ) {
+    	    	parler("Bonjour, je m'appelle"+nom+". Je suis le chef le village "+village.getNom());
+    	    }else {
+    	    	   if(village!=null) {
+    	    		   parler("Bonjour, je m'appelle "+nom+". J'habite le village "+village.getNom());
+    	    	   }else {
+    	    		   parler("Bonjour, je m'appelle "+nom+". Je voyage de villages en villages.");
+    	    	   }
+    	    }
+    	
+    }
+    
 }
