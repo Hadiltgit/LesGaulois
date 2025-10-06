@@ -82,6 +82,7 @@ public class Village {
     	   chef.sePresenter();
     }
     
+    
    public void afficherVillage() {
     	
 	   for(int i=0 ; i<nbr ; i++) {

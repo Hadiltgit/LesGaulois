@@ -60,6 +60,7 @@ public class Gauloi {
 	}
 		
     	
+	
     public void sePresenter(){
     	
     	if(village!=null) {
