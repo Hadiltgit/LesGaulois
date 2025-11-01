@@ -5,7 +5,6 @@ public class Druide {
 	private String nom;
 	private int force;
 	
-	
     public String getNom() {
 	   return nom;
     }

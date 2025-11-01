@@ -5,8 +5,8 @@ public class Village {
 	private String nom;
 	private int nbvillageois=0;
 	
-	private Gauloi[] villageois = new Gauloi[77] ;
-	private Gauloi chef;
+	private Gauloi chef ;
+	private Gauloi[] villageois ;
 	
 	public String getNom() {
 		return nom;
@@ -17,28 +17,30 @@ public class Village {
 	}
 	
 	
-	
-	
-	public Village(String nom , int nbvillageois , Gauloi chef ) {
+	public Village(String nom , Gauloi chef , int nbVillMax) {
 		this.nom=nom;
-		this.nbvillageois=nbvillageois;
 		this.chef=chef;
+		this.chef.setVillage(this);
+	    villageois = new Gauloi[nbVillMax] ;
+		
 	}
 	
-    	int nbr=0;
+    
 	public void ajouterVillageois(Gauloi gauloi) {
-		villageois[nbr]=gauloi;
-		nbr++;
+		villageois[nbvillageois]=gauloi;
+		nbvillageois++;
+		gauloi.setVillage(this);
 	}
 	
-    public Gauloi trouverVillageois(int numVillageois) {
-		if(numVillageois <= nbr) {
-			return villageois[numVillageois] ;
-		}else{
-			System.out.println("Il n’y a pas autant d’habitants dans notre village !");
-			return null;
-		}
+	public Gauloi trouverVillageois(int numeroVillageois) {
+	    if (numeroVillageois > 0 && numeroVillageois <= nbvillageois) {
+	        return villageois[numeroVillageois - 1];  
+	    } else {
+	        System.out.println("Il n’y a pas autant d’habitants dans notre village !");
+	        return null;
+	    }
 	}
+
     
    
     
@@ -46,32 +48,28 @@ public class Village {
     	
     	  Gauloi chef = new Gauloi("Abraracourcix",6);
     	  
-        
-    	   Village village = new Village("Village des Irraductibles",30 , chef);
+    	   Village village = new Village("Village des Irraductibles", chef,30);
     	   
-    	   village.ajouterVillageois(chef);
-    	   chef.setVillage(village);
-    	   
+    	   Gauloi gaulois = village.trouverVillageois(30);
+    	     	   
     	   Gauloi Astirix = new Gauloi("Astirix",8);
     	   
     	   village.ajouterVillageois(Astirix);
-    	   Astirix.setVillage(village);
     	   
-    	   Gauloi gaulois = village.trouverVillageois(1);
-    	   System.out.println(gaulois.getNom());
-    	   gaulois = village.trouverVillageois(2);
-    	   System.out.println(gaulois);
+    	   Gauloi gauloi = village.trouverVillageois(1);
+    	   System.out.println(gauloi.getNom());
+    	   gauloi = village.trouverVillageois(2);
+    	   System.out.println(gauloi);
     	   
     	   
-    	   System.out.println("Dans le village \" "+village.getNom()+"\" du chef "+village.trouverVillageois(0).getNom()+" vivent les lagendaires gaulois :");
-    	   gaulois = village.trouverVillageois(1);
-    	   System.out.println("-"+gaulois.getNom());
+    	   System.out.println("Dans le village \" "+village.getNom()+"\" du chef "+village.chef.getNom()+" vivent les lagendaires gaulois :");
+    	   gauloi= village.trouverVillageois(1);
+    	   System.out.println("-"+gauloi.getNom());
     	   
     	   
     	   Gauloi obelix = new Gauloi("Obelix",25);
-    	   obelix.setVillage(village);
     	   village.ajouterVillageois(obelix);
-    	   village.afficherVillage();
+    	   village.afficherVillageois();
 
     	   
     	   Gauloi DoublePolemix = new Gauloi("DoublePolemix",4);
@@ -80,12 +78,13 @@ public class Village {
     	   obelix.sePresenter();
     	   DoublePolemix.sePresenter();
     	   chef.sePresenter();
+    	   
     }
     
     
-   public void afficherVillage() {
-    	
-	   for(int i=0 ; i<nbr ; i++) {
+   public void afficherVillageois() {
+	   System.out.println(chef.getNom());
+	   for(int i=0 ; i<nbvillageois ; i++) {
 		   System.out.println(villageois[i].getNom());
 	   }
     }

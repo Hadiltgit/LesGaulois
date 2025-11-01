@@ -5,7 +5,7 @@ public class Gauloi {
 	private String nom;
 	private int force;
 	private int effetPotion=1;
-	private Village village;
+	private Village village ;
 	
 	public Gauloi (String nom, int force) {
 	this.nom = nom;
@@ -34,13 +34,16 @@ public class Gauloi {
 		Gauloi astirix = new Gauloi("Astirix",8);
 		
 		System.out.println(astirix );
+		System.out.println(astirix.getNom() );
     }
 
 
-	@Override
+    @Override
 	public String toString() {
 		return "Gauloi [nom=" + nom + "]";
 	}
+	
+	
 	
 	public void frapper(Romain romain) {
 		
