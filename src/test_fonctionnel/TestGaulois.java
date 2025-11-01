@@ -21,10 +21,8 @@ public class TestGaulois {
 		for(int i=0 ; i<=2 ; i++) {
 			if(i != 2) {
 				asterix.frapper(minus);
-				System.out.println(minus.prenPar()+"\"Aie\"");
 			}else {
 				asterix.frapper(minus);
-				System.out.println(minus.prenPar()+" \" \"J'abandonne !\" ");
 			}
 		}
 		
@@ -38,10 +36,8 @@ public class TestGaulois {
 		for(int i=0 ; i<=2 ; i++) {
 			if(i != 2) {
 				asterix.frapper(brutus);
-				System.out.println(brutus.prenPar()+"\"Aie\"");
 			}else {
 				asterix.frapper(brutus);
-				System.out.println(brutus.prenPar()+" \" \"J'abandonne !\" ");
 			}
 		}
 	}
