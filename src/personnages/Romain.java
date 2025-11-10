@@ -77,6 +77,9 @@ public class Romain {
 		}
 		parler(texte);
 		forceCoup -= resistanceEquipement;
+		if (forceCoup < 0) { 
+			forceCoup = 0;
+		} 
 		return forceCoup;
 	}
 	
