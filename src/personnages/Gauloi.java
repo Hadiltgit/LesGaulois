@@ -50,7 +50,7 @@ public class Gauloi {
     }
 
 
-    @Override
+   @Override
 	public String toString() {
 		return "Gauloi [nom=" + nom + "]";
 	}
