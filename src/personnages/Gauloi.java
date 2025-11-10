@@ -47,6 +47,12 @@ public class Gauloi {
 		
 		System.out.println(astirix );
 		System.out.println(astirix.getNom() );
+		
+		Musee musee = new Musee (astirix);
+		musee.donnerTrophees(astirix,Equipement.BOUCLIER);
+		musee.donnerTrophees(astirix,Equipement.CASQUE);
+		musee.donnerTrophees(astirix,Equipement.CASQUE);
+		astirix.faireUneDonnation (musee);
     }
 
 
@@ -72,7 +78,7 @@ public class Gauloi {
     
  //modification3
     public void frapper(Romain romain) {
-    	System.out.println(nom + " envoie un grand coup dans la m�choire de " +
+    	System.out.println(nom + " envoie un grand coup dans la m�choire de " +
     	romain.getNom());
     	Equipement[] tropheesL = romain.recevoirCoup((force / 3) * effetPotion);
     	for (int i = 0; tropheesL != null && i < tropheesL.length; i++,
@@ -102,6 +108,30 @@ public class Gauloi {
        }
     }
     	
-
+   
+   public void faireUneDonnation (Musee musee) {
+	   if(musee.getNbTrophee()>=1) {
+		  System.out.println(prendreParole()+"« Je donne au musee tous mes trophees :"); 
+		  Trophee[] trophees = musee.getTrophees();
+		  for(int i = 0 ; i < trophees.length ; i++) {
+			  System.out.println("- "+trophees[i]+"\n");  
+		  }
+		  System.out.println("»");
+	   }
+	}
+   
+   public String extraireInstructionsOCaml (Musee musee) {
+	   if(musee.getNbTrophee()>=1) { 
+			  Trophee[] trophees = musee.getTrophees();
+			  String b ="";
+			  for(int i = 0 ; i < trophees.length ; i++) {
+				  b=b+" \" "+musee.getGauloi().getNom()+" \" , \" "+trophees[i]+" \" \n";  
+			  }
+			  return "let musee = [ \n"+b+"]";
+		   }else {
+			   return "rien";
+		   }
+	   
+   }
     
 }

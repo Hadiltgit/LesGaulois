@@ -1,8 +1,8 @@
 package histoire;
 
 import personnages.Druide;
-import personnages.matos.Equipement;
-import personnages.Gaulois;
+import objets.Equipement;
+import personnages.Gauloi;
 import personnages.Romain;
 
 //import villagegaulois.Musee;
@@ -13,8 +13,8 @@ public class Scenario {
 		Druide druide = new Druide("Panoramix", 5);
 		druide.parler("Je vais aller préparer une petite potion...");
 		druide.fabriquerPotion(5, 3);
-		Gaulois obelix = new Gaulois("Obélix", 25);
-		Gaulois asterix = new Gaulois("Astérix", 8);
+		Gauloi obelix = new Gauloi("Obélix", 25);
+		Gauloi asterix = new Gauloi("Astérix", 8);
 		druide.booster(obelix);
 		obelix.parler("Par Bélénos, ce n'est pas juste !");
 		druide.booster(asterix);
